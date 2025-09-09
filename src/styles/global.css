@@ -36,3 +36,10 @@ a { color: var(--primary); text-decoration: none; }
   transition: transform .2s;
 }
 .btn:hover { transform: scale(1.05); }
+
+@media (max-width: 768px) {
+  .container { padding: 0 15px; }
+  .desktop-links { display: none; }
+  .mobile-menu { display: block; }
+  .btn { width: 100%; text-align: center; }
+}
