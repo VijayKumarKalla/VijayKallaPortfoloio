@@ -43,3 +43,28 @@ a { color: var(--primary); text-decoration: none; }
   .mobile-menu { display: block; }
   .btn { width: 100%; text-align: center; }
 }
+
+/* Default Navbar Links */
+nav a {
+  color: var(--text);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+/* Hide mobile menu on desktop */
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-links {
+    display: none !important;
+  }
+  .mobile-menu {
+    display: block !important;
+  }
+}

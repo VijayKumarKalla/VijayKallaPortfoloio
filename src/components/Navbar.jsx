@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -21,7 +20,7 @@ export default function Navbar() {
         top: 0,
         zIndex: 50,
         background: "var(--bg)",
-        borderBottom: "1px solid var(--muted)",
+        borderBottom: "1px solid rgba(255,255,255,0.1)",
       }}
     >
       <div
@@ -33,19 +32,20 @@ export default function Navbar() {
           height: "64px",
         }}
       >
-        {/* Brand */}
+        {/* Logo / Brand */}
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
+          style={{ fontWeight: "700", fontSize: "20px" }}
         >
           Vijay Kalla
         </motion.h2>
 
-        {/* Desktop links */}
+        {/* Desktop Links */}
         <div
           className="desktop-links"
-          style={{ display: "flex", gap: "20px", alignItems: "center" }}
+          style={{ display: "flex", gap: "25px", alignItems: "center" }}
         >
           {links.map((link) =>
             link.download ? (
@@ -62,17 +62,17 @@ export default function Navbar() {
               </a>
             )
           )}
-          <ThemeToggle />
         </div>
 
-        {/* Mobile menu button */}
+        {/* Mobile Hamburger */}
         <button
           onClick={() => setOpen(!open)}
           className="mobile-menu"
           style={{
             background: "transparent",
             border: "none",
-            fontSize: "24px",
+            fontSize: "26px",
+            color: "var(--text)",
             display: "none",
             cursor: "pointer",
           }}
@@ -81,7 +81,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile dropdown menu */}
+      {/* Mobile Dropdown */}
       {open && (
         <motion.div
           initial={{ height: 0, opacity: 0 }}
@@ -90,9 +90,9 @@ export default function Navbar() {
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: "15px",
+            gap: "18px",
             padding: "15px 20px",
-            borderTop: "1px solid var(--muted)",
+            borderTop: "1px solid rgba(255,255,255,0.1)",
           }}
         >
           {links.map((link) =>
@@ -116,7 +116,6 @@ export default function Navbar() {
               </a>
             )
           )}
-          <ThemeToggle />
         </motion.div>
       )}
     </nav>
